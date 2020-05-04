@@ -1,0 +1,7 @@
+info/marceloweb/springbootexample/exception/ErrorResponse.class
+info/marceloweb/springbootexample/exception/ResourceNotFoundException.class
+info/marceloweb/springbootexample/SpringBootExampleApplication.class
+info/marceloweb/springbootexample/repository/UserRepository.class
+info/marceloweb/springbootexample/model/User.class
+info/marceloweb/springbootexample/exception/GlobalExceptionHandler.class
+info/marceloweb/springbootexample/controller/UserController.class
