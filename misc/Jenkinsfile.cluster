@@ -1,6 +1,9 @@
 node {
 
   try {
+      environment {
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp_credential')
+      }
       stage('Preparation') {
         checkout scm
       }
