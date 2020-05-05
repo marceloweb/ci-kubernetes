@@ -9,9 +9,7 @@ node {
       }
 
       stage('Creating cluster') {
-        sh "./terraform init"
-        sh "./terraform plan"
-        sh "./terraform apply -auto-approve" 
+        sh "./misc/scripts/createCluster.sh ${env.GOOGLE_APPLICATION_CREDENTIALS}"
       }
     } catch(e) {
 
