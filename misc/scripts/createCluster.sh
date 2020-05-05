@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GOOGLE_APPLICATION_CREDENTIALS=$1
+export GOOGLE_APPLICATION_CREDENTIALS=$1
 
 ./terraform init
 ./terraform plan
