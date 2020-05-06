@@ -4,10 +4,6 @@ resource "google_container_cluster" "primary" {
   project  = "lab-marceloweb"
   initial_node_count       = 2
 
-  module "gcp" {
-     source = "./gcp"
-  }
-
   master_auth {
     username = ""
     password = ""
@@ -19,4 +15,8 @@ resource "google_container_cluster" "primary" {
 
 }
 
+module "gcp" {
+     source = "./gcp"
+     subnet_id = var.cluster_name
+}
 
