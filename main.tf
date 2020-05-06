@@ -20,6 +20,7 @@ variable "cluster_name" {
 }
 
 module "gcp" {
+  source = "./gcp"
   cluster_name = var.cluster_name
 }
 
