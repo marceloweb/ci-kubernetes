@@ -17,6 +17,6 @@ resource "google_container_cluster" "primary" {
 
 module "gcp" {
      source = "./gcp"
-     subnet_id = var.cluster_name
+     cluster_name = var.cluster_name
 }
 
