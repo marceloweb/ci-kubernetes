@@ -15,8 +15,11 @@ resource "google_container_cluster" "primary" {
 
 }
 
+variable "cluster_name" {
+  default = "my-gke-cluster"
+}
+
 module "gcp" {
-     source = "./gcp"
-     cluster_name = var.cluster_name
+  cluster_name = var.cluster_name
 }
 
