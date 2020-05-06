@@ -1,15 +1,14 @@
 node {
   try {
-      environment {
-         GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-credentials')
-      }
 
       stage('Preparation') {
         checkout scm
       }
 
       stage('Deploying in Prod') {
-        sh "./misc/scripts/deployProd.sh ${env.GOOGLE_APPLICATION_CREDENTIALS} ${env.GCP_REGION} ${env.GCP_PROJECT} ${env.CREDENTIALS}"
+        withCredentials([file(credentialsId: 'gcp_credential', variable: 'gcp_key')]) {  
+           sh "./misc/scripts/deployProd.sh ${gcp_key} ${env.GCP_REGION} ${env.GCP_PROJECT} ${env.CREDENTIALS}"
+        }
       }
     } catch(e) {
 
