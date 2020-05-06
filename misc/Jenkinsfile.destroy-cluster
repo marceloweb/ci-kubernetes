@@ -1,0 +1,20 @@
+node {
+
+  try {
+      
+      stage('Preparation') {
+        checkout scm
+      }
+
+      stage('Creating cluster') {
+        withCredentials([file(credentialsId: 'gcp_credential', variable: 'gcp_key')]) {
+           sh "./misc/scripts/destroyCluster.sh ${gcp_key}"
+	}
+      }
+    } catch(e) {
+
+       println "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' ${env.BUILD_URL}"
+
+    throw e;
+   }                                     
+}                                          
