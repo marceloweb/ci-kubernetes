@@ -1,16 +1,15 @@
 node {
 
   try {
-      environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-credential')
-      }
-
+      
       stage('Preparation') {
         checkout scm
       }
 
       stage('Creating cluster') {
-        sh "./misc/scripts/createCluster.sh ${env.GOOGLE_APPLICATION_CREDENTIALS}"
+        withCredentials([file(credentialsId: 'gcp_credential', variable: 'gcp_key')]) {
+           sh "./misc/scripts/createCluster.sh ${gcp_key}"
+	}
       }
     } catch(e) {
 
